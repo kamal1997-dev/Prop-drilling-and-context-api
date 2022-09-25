@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
 
+import './App.css';
+import Family from './contextapi/Family'
+
+import {FamilyContext} from './contextapi/FamilyContext';
+const secret={
+  familyName:"Will smith family",
+  onlyForParent:function(){
+      return " parents can see"
+  },
+  onlyForgrandChild:function(){
+      return " grandchilds can see"
+  }
+
+}
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <FamilyContext.Provider value={secret}>
+      
+      <Family/>
+      </FamilyContext.Provider>
+      
     </div>
   );
 }
